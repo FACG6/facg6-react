@@ -1,0 +1,10 @@
+:root{
+    --main-header-text-color:#3c5970;
+    --main-header-text-shadow-color:#333435;
+}
+.footer{
+    margin-left: 1.5%;
+    color: var(--main-header-text-color);
+    text-transform: unset;
+    text-shadow: 0.6px 0.2px var(--main-header-text-shadow-color);
+}
