@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import Home from './components/home';
-import AllStudents from './components/allStudents';
-import Student from './components/student';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./components/home";
+import AllStudents from "./components/allStudents";
+import Student from "./components/student";
+import Header from "./components/layout/header";
+import Footer from "./components/layout/footer";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <React.Fragment>
+          <Header />
           <Switch>
-            <Route path='/' component={Home} exact/>
-            <Route path='/all-students' component={AllStudents} exact/>
-            <Route path='/all-students/student' component={Student} />
-            <Route render={() => (
-              <h1>Page Not Found</h1>
-            )} />
+            <Route path="/" component={Home} exact />
+            <Route path="/all-students" component={AllStudents} exact />
+            <Route path="/all-students/student/:username" component={Student} />
+            <Route render={() => <h1>Page Not Found</h1>} />
           </Switch>
+          <Footer />
         </React.Fragment>
       </BrowserRouter>
     );
