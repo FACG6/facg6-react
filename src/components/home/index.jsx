@@ -20,7 +20,7 @@ class Home extends Component {
     return (
       <div className="main">
         <img className="avatar" src={avatar_url} alt="" />
-        <a href={html_url}>Go to repos.</a>
+        <a href={html_url}>Go to repo s.</a>
         <div className="description">
           The Code Academy is Palestine’s first full-stack coding bootcamp with
           a flagship campus in Gaza City and second campus in the West Bank city

@@ -1,11 +1,13 @@
 .header {
-  width: 100%;
+  width: 80%;
   height: 100px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 0.5% 1%;
   border-bottom: 1px solid #3c586a78;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .logo {
   align-self: center;
@@ -24,7 +26,7 @@
   margin: 0 5%;
 }
 .nav-link {
-  display: inline-block;
+  display: block;
   text-align: center;
   font-size: 1em;
   text-transform: uppercase;
