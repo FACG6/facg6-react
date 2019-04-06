@@ -1,0 +1,50 @@
+.main__info {
+    width: 20%;
+    padding: 10px;
+}
+
+.main__info-img {
+    width: 225px;
+    height: 210px;
+    border: 1px solid #80808047;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.main__info-username,
+.main__info-name,
+.main__info-bio,
+.main__info-following,
+.main__info-followers,
+.main__info-stars {
+    padding: 5px;
+    border-bottom: 1px solid #80808047;
+}
+
+.main__info-username {
+    font-weight: bold;
+    text-align: center;
+}
+
+.main__repos {
+    width: 80%;
+    padding: 10px;
+    border-left: 1px solid gainsboro;
+}
+
+.main__repos-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid gainsboro;
+    width: 135px;
+    padding: 10px;
+}
+
+.main__repos-link {
+    margin-left: 40px;
+    padding: 10px; 
+}
+.main__repos-link li{
+    padding: 10px;
+}
