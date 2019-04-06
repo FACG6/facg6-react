@@ -7,7 +7,7 @@ import "./style.css";
 export default class index extends Component {
   state = {
     name: null,
-    repos: [],
+    repos: null,
     following: 0,
     followers: 0,
     bio: null,
@@ -37,7 +37,7 @@ export default class index extends Component {
   render() {
     const { name, img, followers, following, bio, repos } = this.state;
     return (
-      <main className="main">
+      <main className="main-students">
         <section className="main__info">
           <img src={img} className="main__info-img" alt="pict" />
           <p className="main__info-username">
@@ -51,7 +51,7 @@ export default class index extends Component {
         <section className="main__repos">
           <p className="main__repos-title">Repositories : </p>
           <ol className="main__repos-link">
-          {repos.map((repo, index) => <Repo key={index} details={repo}/>)}
+          {this.state.repos? repos.map((repo, index) => <Repo key={index} details={repo}/>): 'Loading ...'}
           </ol>
         </section>
       </main>

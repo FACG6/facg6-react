@@ -3,21 +3,26 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/home';
 import AllStudents from './components/allStudents';
 import Student from './components/student';
+import Header from './components/layout/header';
+import Footer from './components/layout/footer';
+import './app.css';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <React.Fragment>
+        <div className='layout'>
+          <Header />
           <Switch>
             <Route path='/' component={Home} exact/>
-            <Route path='/all-students' component={AllStudents} exact/>
-            <Route path='/all-students/student' component={Student} />
+            <Route path="/all-students" component={AllStudents} exact />
+            <Route path="/all-students/student/:username" component={Student} />
             <Route render={() => (
               <h1>Page Not Found</h1>
             )} />
           </Switch>
-        </React.Fragment>
+          <Footer />
+        </div>
       </BrowserRouter>
     );
   }

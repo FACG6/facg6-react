@@ -4,7 +4,7 @@ const checkResponse = (response) => {
     }
     return response.json();
 }
-const getDate = (url) => {
+const getData = (url) => {
     return (
         fetch(url)
         .then(res => checkResponse(res))
@@ -13,4 +13,5 @@ const getDate = (url) => {
         })
     );
 };
-export default getDate;
+
+export default getData;
