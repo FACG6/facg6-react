@@ -12,7 +12,7 @@ class Student extends Component {
     const url = `https://api.github.com/users/${this.props.username}`;
     getData(url).then(result => {
       this.setState({
-        student: { name: result.name, img: result.avatar_url, info: result }
+        student: { name: result.name, img: result.avatar_url}
       });
     });
   }
