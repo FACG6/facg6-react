@@ -5,6 +5,7 @@
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 0.5% 1%;
+  border-bottom: 1px solid #3c586a78;
 }
 .logo {
   align-self: center;
