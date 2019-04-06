@@ -5,6 +5,8 @@
   display: flex;
   flex-flow: column wrap;
   align-content: center;
+  overflow: hidden;
+  min-height: 500px;
 }
 .avatar {
   width: 18%;
