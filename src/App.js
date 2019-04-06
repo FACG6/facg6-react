@@ -15,8 +15,8 @@ class App extends Component {
           <Header />
           <Switch>
             <Route path='/' component={Home} exact/>
-            {/* <Route path='/all-students' component={AllStudents} exact/>
-            <Route path='/all-students/student' component={Student} /> */}
+            <Route path="/all-students" component={AllStudents} exact />
+            <Route path="/all-students/student/:username" component={Student} />
             <Route render={() => (
               <h1>Page Not Found</h1>
             )} />
