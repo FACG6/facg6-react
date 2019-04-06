@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./style.css";
 
-function index() {
+const Footer = () => {
   return (
-    <div>
-      Footer Here
+    <div className="footer">
+      <span>CopyRights &copy; 2019</span>
     </div>
-  )
-}
+  );
+};
 
-export default index;
+export default Footer;

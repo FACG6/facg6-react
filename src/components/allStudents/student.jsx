@@ -11,9 +11,6 @@ class Student extends Component {
   componentDidMount() {
     const url = `https://api.github.com/users/${this.props.username}`;
     getData(url).then(result => {
-      if (result.error) {
-        this.setState({ error: result.error });
-      }
       this.setState({
         student: { name: result.name, img: result.avatar_url, info: result }
       });

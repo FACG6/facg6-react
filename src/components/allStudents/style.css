@@ -1,15 +1,9 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Laila', serif;
-}
-
-.main {
+.main-students {
     min-height: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 20px;
 }
 
 .container {

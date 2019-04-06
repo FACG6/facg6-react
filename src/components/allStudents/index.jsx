@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Student from "./student";
 import "./style.css";
 
-export class index extends Component {
-  state = {
+const index = () => {
+  const users = {
     students: [
       { id: 1, username: "AbdallahAmmar96" },
       { id: 2, username: "AhmedAl-Almi" },
@@ -24,15 +24,13 @@ export class index extends Component {
       { id: 16, username: "KhaderMurtaja" }
     ]
   };
-  render() {
     return (
-      <main className='main'>
-        {this.state.students.map(student => (
+      <main className='main-students'>
+        {users.students.map(student => (
           <Student key={student.id} username={student.username} />
         ))}
       </main>
     );
-  }
 }
 
 export default index;
