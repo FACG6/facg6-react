@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import getData from "../../utils/getData";
 
@@ -55,5 +56,8 @@ class Student extends Component {
     );
   }
 }
+Student.propTypes = {
+  username: PropTypes.string.isRequired
+};
 
 export default Student;
