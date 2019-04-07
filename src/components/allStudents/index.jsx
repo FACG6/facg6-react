@@ -24,6 +24,7 @@ const index = () => {
       { id: 16, username: "KhaderMurtaja" }
     ]
   };
+  localStorage.setItem('students', JSON.stringify(users.students));
     return (
       <main className='main-students'>
       <h1 className='main-student__title'>All Students In FACG6</h1>

@@ -17,6 +17,17 @@ export default class Index extends Component {
 
   componentDidMount() {
     const username = this.props.match.params.username;
+  const students = JSON.parse(localStorage.getItem('students'));
+    let isStudent = false;
+    console.log(students);
+    students.forEach(element => {
+      if(element.username === username)
+        isStudent = true;
+    })
+    if(!isStudent){
+      this.setState({error: `${username} is not a student in facg6`});
+      return;
+    }
     getData(`https://api.github.com/users/${username}`)
       .then(result => {
         const error = result.error;
@@ -46,7 +57,7 @@ export default class Index extends Component {
   render() {
     const error = this.state.error;
     if(error) {
-      return <p>{error}</p>
+      return (<main className='main'><p>{error}</p></main>)
     }
     const { name, img, followers, following, bio, repos } = this.state;
     return (
