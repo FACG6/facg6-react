@@ -19,7 +19,6 @@ export default class Index extends Component {
     const username = this.props.match.params.username;
   const students = JSON.parse(localStorage.getItem('students'));
     let isStudent = false;
-    console.log(students);
     students.forEach(element => {
       if(element.username === username)
         isStudent = true;
