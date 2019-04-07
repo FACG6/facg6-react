@@ -22,7 +22,7 @@ class Student extends Component {
         }
       })
       .catch(error => {
-        this.setState({ error: 'There an error please refresh the page' });
+        this.setState({ error: 'There is error please refresh the page' });
       });
   }
   render() {

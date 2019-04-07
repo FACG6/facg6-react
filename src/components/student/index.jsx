@@ -40,7 +40,7 @@ export default class Index extends Component {
         this.setState({ repos: [...repos] });
       })
       .catch(error => {
-        this.setState({ error: 'There an error please refresh the page' });
+        this.setState({ error: 'There is error please refresh the page' });
       });
   }
   render() {
