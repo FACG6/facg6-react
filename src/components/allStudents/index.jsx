@@ -24,14 +24,15 @@ const index = () => {
       { id: 16, username: "KhaderMurtaja" }
     ]
   };
-  return (
-    <main className="main-students">
-      <h1 className="main-student__title">All Students In FACG6</h1>
-      {users.students.map(student => (
-        <Student key={student.id} username={student.username} />
-      ))}
-    </main>
-  );
-};
+  localStorage.setItem('students', JSON.stringify(users.students));
+    return (
+      <main className='main-students'>
+      <h1 className='main-student__title'>All Students In FACG6</h1>
+        {users.students.map(student => (
+          <Student key={student.id} username={student.username} />
+        ))}
+      </main>
+    );
+}
 
 export default index;
