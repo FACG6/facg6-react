@@ -40,7 +40,7 @@ class Student extends Component {
   }
 }
 Student.propTypes = {
-  username: PropTypes.string
+  username: PropTypes.string.isRequired
 };
 
 export default Student;

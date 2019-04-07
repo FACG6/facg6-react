@@ -10,9 +10,10 @@ function Repo(props) {
   );
 }
 Repo.propTypes = {
-  details: PropTypes.object,
-  name: PropTypes.string,
-  link: PropTypes.string
+  details: PropTypes.shape({
+    name: PropTypes.string,
+    link: PropTypes.string
+  }).isRequired
 };
 
 export default Repo;
