@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import getData from "../../utils/getData";
+import { addStudent, getStudent } from "../../utils/localStorageData";
 
 class Student extends Component {
   state = {
@@ -10,27 +11,42 @@ class Student extends Component {
     error: null
   };
   componentDidMount() {
-    const url = `https://api.github.com/users/${this.props.username}`;
+    const username = this.props.username;
+    const studentLocalStorage = JSON.parse(getStudent(username));
+    if (studentLocalStorage) {
+      this.setState({ student: studentLocalStorage });
+      return;
+    }
+    const url = `https://api.github.com/users/${username}`;
     getData(url)
       .then(result => {
         const error = result.error;
         if (error) {
-          this.setState({ error});
+          this.setState({ error });
         } else {
+          const studentInfo = {
+            name: result.name,
+            bio: result.bio,
+            followers: result.followers,
+            following: result.following,
+            img: result.avatar_url,
+            repoUrl: result.repos_url
+          };
           this.setState({
-            student: { name: result.name, img: result.avatar_url }
+            student: studentInfo
           });
+          addStudent(username, studentInfo);
         }
       })
       .catch(error => {
-        this.setState({ error: 'There is error please refresh the page' });
+        this.setState({ error: "There is error please refresh the page" });
       });
   }
   render() {
     if (!this.state.student) {
       return <div>Loading ...</div>;
     }
-    const error = this.state.error
+    const error = this.state.error;
     if (error) {
       return (
         <div className="container">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import getData from "../../utils/getData";
 import Repo from "./Repo";
+import { getStudent } from "../../utils/localStorageData";
 import "./style.css";
 
 export default class Index extends Component {
@@ -15,17 +16,40 @@ export default class Index extends Component {
     error: null
   };
 
-  componentDidMount() {
+  isStudent = () => {
     const username = this.props.match.params.username;
-  const students = JSON.parse(localStorage.getItem('students'));
+    const students = JSON.parse(getStudent("students"));
     let isStudent = false;
     students.forEach(element => {
-      if(element.username === username)
-        isStudent = true;
-    })
-    if(!isStudent){
-      this.setState({error: `${username} is not a student in facg6`});
-      return;
+      if (element.username === username) isStudent = true;
+    });
+    if (!isStudent) {
+      this.setState({ error: `${username} is not a student in facg6` });
+    }
+  };
+
+  componentDidMount() {
+    const username = this.props.match.params.username;
+    const studentInfo = JSON.parse(getStudent(username));
+    if (studentInfo) {
+      this.setState({
+        name: studentInfo.name,
+        bio: studentInfo.bio,
+        followers: studentInfo.followers,
+        following: studentInfo.following,
+        img: studentInfo.img
+      });
+      getData(studentInfo.repoUrl)
+        .then(result => {
+          const repos = result.map(repo => {
+            return { name: repo.name, link: repo.html_url };
+          });
+          this.setState({ repos: [...repos] });
+        })
+        .catch(error => {
+          this.setState({ error: "There is error please refresh the page" });
+        });
+        return ;
     }
     getData(`https://api.github.com/users/${username}`)
       .then(result => {
@@ -50,13 +74,18 @@ export default class Index extends Component {
         this.setState({ repos: [...repos] });
       })
       .catch(error => {
-        this.setState({ error: 'There is error please refresh the page' });
+        this.setState({ error: "There is error please refresh the page" });
       });
   }
   render() {
+    this.isStudent();
     const error = this.state.error;
-    if(error) {
-      return (<main className='main'><p>{error}</p></main>)
+    if (error) {
+      return (
+        <main className="main">
+          <p>{error}</p>
+        </main>
+      );
     }
     const { name, img, followers, following, bio, repos } = this.state;
     return (
