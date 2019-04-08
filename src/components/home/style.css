@@ -19,6 +19,7 @@
   width: 80%;
   padding: 1%;
   line-height: 2;
+  text-align: justify;
   text-justify: inter-word;
 }
 .main a {
@@ -26,6 +27,7 @@
   text-decoration: none;
   color: var(--main-header-text-color);
   font-style: oblique;
+  font-size: 1.2em;
 }
 .main a:hover {
   text-shadow: 0.6px 0.2px var(--main-header-text-shadow-color);
