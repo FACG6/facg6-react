@@ -36,6 +36,10 @@ This App is used to display the information about the current cohort on the code
 - As a user I can view more details about each student on this cohort by clicking on 'more view' button.
 - As a user I can navigate any page by clicking the appropriate nav link.
 
+## Prototype
+
+Website prototype is [here](https://www.figma.com/file/gareiTVCwd6x9UbK8X281Ckr/Untitled?node-id=0%3A1)
+
 ## How to use
 
 1- clone this repo. https://github.com/FACG6/facg6-react.git
